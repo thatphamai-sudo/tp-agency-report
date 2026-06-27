@@ -2,31 +2,32 @@
 <style>
 :root{--gold:#c9a14a;--dark:#11151c;--dark2:#1c2330}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f3f4f7;margin:0;color:#1f2937}.wrap{max-width:680px;margin:0 auto;padding:26px}
-.hd{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:16px;padding:22px;margin-bottom:18px;position:relative;overflow:hidden}
-.hd:before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 90% -10%,rgba(201,161,74,.22),transparent 60%)}
-.hd .row1{display:flex;align-items:center;gap:14px}
-.logo-svg{width:50px;height:50px}
+.hd{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:16px;padding:24px;margin-bottom:18px;position:relative;overflow:hidden}
+.hd-in{position:relative;z-index:2}
+.fx{position:absolute;inset:0;pointer-events:none;z-index:0}
+.fx-grid{background-image:linear-gradient(rgba(201,161,74,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(201,161,74,.045) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(135% 115% at 50% 0,#000,transparent 80%);mask-image:radial-gradient(135% 115% at 50% 0,#000,transparent 80%);animation:gridpan 30s linear infinite}
+@keyframes gridpan{to{background-position:0 34px}}
+.fx-glow{background:radial-gradient(60% 60% at 80% -10%,rgba(201,161,74,.11),transparent 72%);animation:glowpulse 11s ease-in-out infinite}
+@keyframes glowpulse{0%,100%{opacity:.5}50%{opacity:.85}}
+.fx-scan{position:absolute;left:0;right:0;height:1px;top:0;z-index:1;background:linear-gradient(90deg,transparent,rgba(243,215,127,.22),transparent);animation:scan 16s linear infinite}
+@keyframes scan{0%{top:-2%;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:102%;opacity:0}}
+.dot{position:absolute;width:2.5px;height:2.5px;border-radius:50%;background:rgba(243,215,127,.5);z-index:1;box-shadow:0 0 5px rgba(243,215,127,.4);animation:drift 13s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translateY(0);opacity:.15}50%{transform:translateY(-8px);opacity:.65}}
+.brand-hero{text-align:center}
+.brand-hero .blogo{max-width:280px;width:70%;height:auto;filter:drop-shadow(0 6px 22px rgba(201,161,74,.22))}
 .wordmark{font-size:22px;font-weight:800;letter-spacing:.5px}
 .wordmark .t{background:linear-gradient(135deg,#aab0b8,#f2f5f8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .wordmark .n{background:linear-gradient(135deg,#caa14a,#f3d77f);-webkit-background-clip:text;background-clip:text;color:transparent}
-.tagline{font-size:10.5px;letter-spacing:2px;color:#caa14a;text-transform:uppercase;margin-top:3px}
+.tagline{font-size:10.5px;letter-spacing:2px;color:#caa14a;text-transform:uppercase;margin-top:4px}
 .hd h1{font-size:17px;margin:16px 0 0;font-weight:600;opacity:.95}
+@media (prefers-reduced-motion:reduce){.fx-grid,.fx-glow,.fx-scan,.dot{animation:none}}
 a.row{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid #e8eaee;border-radius:12px;padding:15px 18px;margin-bottom:10px;text-decoration:none;color:#1f2937;box-shadow:0 2px 8px rgba(17,21,28,.04)}
 a.row:hover{border-color:var(--gold)}.c{color:#6b7280;font-size:13px}.arr{color:var(--gold);font-weight:600}
 </style></head><body><div class="wrap">
-<div class="hd"><div class="row1"><svg class="logo-svg" viewBox="0 0 100 100" aria-label="TP Nexus">
-<defs>
-<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8862f"/><stop offset=".5" stop-color="#f3d77f"/><stop offset="1" stop-color="#a9772a"/></linearGradient>
-<linearGradient id="silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9aa0a8"/><stop offset=".5" stop-color="#eef2f6"/><stop offset="1" stop-color="#8b929b"/></linearGradient>
-</defs>
-<circle cx="50" cy="50" r="40" fill="none" stroke="url(#gold)" stroke-width="2" opacity=".55"/>
-<line x1="50" y1="12" x2="50" y2="88" stroke="url(#gold)" stroke-width="1" opacity=".25"/>
-<line x1="12" y1="50" x2="88" y2="50" stroke="url(#gold)" stroke-width="1" opacity=".25"/>
-<circle cx="50" cy="10" r="4.4" fill="url(#gold)"/><circle cx="50" cy="90" r="4.4" fill="url(#gold)"/>
-<circle cx="10" cy="50" r="4.4" fill="url(#silver)"/><circle cx="90" cy="50" r="4.4" fill="url(#gold)"/>
-<text x="50" y="63" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="40" font-weight="700"><tspan fill="url(#silver)">T</tspan><tspan fill="url(#gold)">P</tspan></text>
-<circle cx="50" cy="50" r="9" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
-</svg><div><div class="wordmark"><span class="t">TP</span> <span class="n">Nexus</span></div><div class="tagline">Hội tụ • Tinh gọn • Bứt phá</div></div></div>
-<h1>📊 Báo cáo dịch vụ khách hàng — Kỳ Tháng 6/2026</h1></div>
+<div class="hd"><div class="fx fx-grid"></div><div class="fx fx-glow"></div><div class="fx-scan"></div><span class="dot" style="left:11%;top:32%"></span><span class="dot" style="left:82%;top:24%;animation-delay:2.4s"></span><span class="dot" style="left:63%;top:64%;animation-delay:4s"></span><span class="dot" style="left:28%;top:72%;animation-delay:1.2s"></span><div class="hd-in"><div class="brand brand-hero">
+  <img class="blogo" src="logo.png" alt="TP Nexus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+  <div class="bfall" style="display:none"><div class="wordmark"><span class="t">TP</span> <span class="n">Nexus</span></div><div class="tagline">Hội tụ • Tinh gọn • Bứt phá</div></div>
+</div>
+<h1>📊 Báo cáo dịch vụ khách hàng — Kỳ Tháng 6/2026</h1></div></div>
 <a class="row" href="TP202.html"><div><b>HD ZENCARE</b><div class="c">TP202 | HD ZENCARE</div></div><div class="arr">Xem →</div></a><a class="row" href="TP203.html"><div><b>PKĐK THẢO TIÊN</b><div class="c">TP203 | PKĐK THẢO TIÊN</div></div><div class="arr">Xem →</div></a><a class="row" href="TP204.html"><div><b>SPA MIỀN NHIỆT ĐỚI</b><div class="c">TP204 | SPA MIỀN NHIỆT ĐỚI</div></div><div class="arr">Xem →</div></a><a class="row" href="TP260.html"><div><b>CÔNG TY SRV</b><div class="c">TP260 | CÔNG TY SRV</div></div><div class="arr">Xem →</div></a><a class="row" href="TP258.html"><div><b>Cơ Khí Đình Giang</b><div class="c">TP258 | Cơ Khí Đình Giang</div></div><div class="arr">Xem →</div></a>
 </div></body></html>

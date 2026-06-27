@@ -5,10 +5,24 @@
 *{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',Roboto,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
 .wrap{max-width:880px;margin:0 auto;padding:22px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:16px;box-shadow:0 2px 8px rgba(17,21,28,.05)}
-.hero{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border:none;position:relative;overflow:hidden;padding:24px}
-.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 90% -10%,rgba(201,161,74,.22),transparent 60%);pointer-events:none}
-.hero-top{display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(201,161,74,.28);padding-bottom:14px;margin-bottom:16px}
-.logo-svg{width:54px;height:54px;flex:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.hero{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border:none;position:relative;overflow:hidden;padding:26px}
+.hero-in{position:relative;z-index:2}
+/* tech effects */
+.fx{position:absolute;inset:0;pointer-events:none;z-index:0}
+.fx-grid{background-image:linear-gradient(rgba(201,161,74,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(201,161,74,.045) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(135% 115% at 50% 0,#000,transparent 80%);mask-image:radial-gradient(135% 115% at 50% 0,#000,transparent 80%);animation:gridpan 30s linear infinite}
+@keyframes gridpan{to{background-position:0 34px}}
+.fx-glow{background:radial-gradient(60% 60% at 78% -8%,rgba(201,161,74,.11),transparent 72%);animation:glowpulse 11s ease-in-out infinite}
+@keyframes glowpulse{0%,100%{opacity:.5}50%{opacity:.85}}
+.fx-scan{position:absolute;left:0;right:0;height:1px;top:0;z-index:1;background:linear-gradient(90deg,transparent,rgba(243,215,127,.22),transparent);animation:scan 16s linear infinite;pointer-events:none}
+@keyframes scan{0%{top:-2%;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:102%;opacity:0}}
+.dot{position:absolute;width:2.5px;height:2.5px;border-radius:50%;background:rgba(243,215,127,.5);z-index:1;box-shadow:0 0 5px rgba(243,215,127,.4);animation:drift 13s ease-in-out infinite;pointer-events:none}
+@keyframes drift{0%,100%{transform:translateY(0);opacity:.15}50%{transform:translateY(-8px);opacity:.65}}
+/* logo */
+.brand{margin-bottom:6px}
+.brand-hero{text-align:center;border-bottom:1px solid rgba(201,161,74,.22);padding-bottom:16px;margin-bottom:16px}
+.brand-hero .blogo{max-width:300px;width:72%;height:auto;filter:drop-shadow(0 6px 22px rgba(201,161,74,.22))}
+.brand-foot .blogo{max-width:170px;width:60%;height:auto}
+.brand-foot{margin-bottom:6px}
 .wordmark{font-size:22px;font-weight:800;letter-spacing:.5px;line-height:1}
 .wordmark .t{background:linear-gradient(135deg,#aab0b8,#f2f5f8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .wordmark .n{background:linear-gradient(135deg,#caa14a,#f3d77f);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -44,9 +58,8 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted
 .tbig{display:flex;align-items:center;gap:14px;margin-bottom:16px}
 .tpct{font-size:34px;font-weight:800;color:var(--dark2)}
 .tbar{flex:1}.tbar .kpi-track{height:14px}
-.foot{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:16px;padding:20px 22px;text-align:center}
-.foot .fm{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px}
-.foot .fm .wordmark{font-size:18px}
+.foot{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:16px;padding:22px;text-align:center;position:relative;overflow:hidden}
+.foot-in{position:relative;z-index:2}
 .foot .ftag{color:#caa14a;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
 .foot .fc{font-size:12.5px;color:rgba(255,255,255,.8);line-height:1.7}
 .foot .fc b{color:#f3d77f}
@@ -55,31 +68,22 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted
 .btn{background:var(--dark2);color:#fff;border:none;padding:12px 16px;border-radius:999px;font-size:13.5px;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.25);white-space:nowrap}
 .btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1205;font-weight:700}
 @media(max-width:680px){.stat-grid{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}.kpi-row{grid-template-columns:96px 1fr 100px}.hero h1{font-size:21px}}
-@media print{body{background:#fff}.fab{display:none}.card{box-shadow:none;break-inside:avoid}.wrap{max-width:100%}}
+@media (prefers-reduced-motion:reduce){.fx-grid,.fx-glow,.fx-scan,.dot{animation:none}}
+@media print{body{background:#fff}.fab{display:none}.card{box-shadow:none;break-inside:avoid}.wrap{max-width:100%}.fx,.fx-scan,.dot{display:none!important}}
 </style></head><body><div class="wrap">
 
 <div class="card hero">
-  <div class="hero-top">
-    <svg class="logo-svg" viewBox="0 0 100 100" aria-label="TP Nexus">
-<defs>
-<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8862f"/><stop offset=".5" stop-color="#f3d77f"/><stop offset="1" stop-color="#a9772a"/></linearGradient>
-<linearGradient id="silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9aa0a8"/><stop offset=".5" stop-color="#eef2f6"/><stop offset="1" stop-color="#8b929b"/></linearGradient>
-</defs>
-<circle cx="50" cy="50" r="40" fill="none" stroke="url(#gold)" stroke-width="2" opacity=".55"/>
-<line x1="50" y1="12" x2="50" y2="88" stroke="url(#gold)" stroke-width="1" opacity=".25"/>
-<line x1="12" y1="50" x2="88" y2="50" stroke="url(#gold)" stroke-width="1" opacity=".25"/>
-<circle cx="50" cy="10" r="4.4" fill="url(#gold)"/><circle cx="50" cy="90" r="4.4" fill="url(#gold)"/>
-<circle cx="10" cy="50" r="4.4" fill="url(#silver)"/><circle cx="90" cy="50" r="4.4" fill="url(#gold)"/>
-<text x="50" y="63" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="40" font-weight="700"><tspan fill="url(#silver)">T</tspan><tspan fill="url(#gold)">P</tspan></text>
-<circle cx="50" cy="50" r="9" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
-</svg>
-    <div><div class="wordmark"><span class="t">TP</span> <span class="n">Nexus</span></div>
-    <div class="tagline">Hội tụ • Tinh gọn • Bứt phá</div></div>
+  <div class="fx fx-grid"></div><div class="fx fx-glow"></div><div class="fx-scan"></div><span class="dot" style="left:11%;top:32%"></span><span class="dot" style="left:82%;top:24%;animation-delay:2.4s"></span><span class="dot" style="left:63%;top:64%;animation-delay:4s"></span><span class="dot" style="left:28%;top:72%;animation-delay:1.2s"></span>
+  <div class="hero-in">
+    <div class="brand brand-hero">
+  <img class="blogo" src="logo.png" alt="TP Nexus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+  <div class="bfall" style="display:none"><div class="wordmark"><span class="t">TP</span> <span class="n">Nexus</span></div><div class="tagline">Hội tụ • Tinh gọn • Bứt phá</div></div>
+</div>
+    <div class="hero-doc">Báo cáo dịch vụ truyền thông</div>
+    <h1>Cơ Khí Đình Giang</h1>
+    <div class="sub">TP258 | Cơ Khí Đình Giang</div>
+    <div><span class="badge-period">📅 Kỳ: Tháng 6/2026</span><span class="badge-period">🎯 Tiến độ chỉ tiêu: 20%</span><span class="badge-period">🔄 Cập nhật: 01:33 28/06/2026</span></div>
   </div>
-  <div class="hero-doc">Báo cáo dịch vụ truyền thông</div>
-  <h1>Cơ Khí Đình Giang</h1>
-  <div class="sub">TP258 | Cơ Khí Đình Giang</div>
-  <div><span class="badge-period">📅 Kỳ: Tháng 6/2026</span><span class="badge-period">🎯 Tiến độ chỉ tiêu: 20%</span></div>
 </div>
 
 <div class="card">
@@ -195,23 +199,17 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted
 </div>
 
 <div class="foot">
-  <div class="fm"><svg class="logo-svg" viewBox="0 0 100 100" aria-label="TP Nexus">
-<defs>
-<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8862f"/><stop offset=".5" stop-color="#f3d77f"/><stop offset="1" stop-color="#a9772a"/></linearGradient>
-<linearGradient id="silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9aa0a8"/><stop offset=".5" stop-color="#eef2f6"/><stop offset="1" stop-color="#8b929b"/></linearGradient>
-</defs>
-<circle cx="50" cy="50" r="40" fill="none" stroke="url(#gold)" stroke-width="2" opacity=".55"/>
-<line x1="50" y1="12" x2="50" y2="88" stroke="url(#gold)" stroke-width="1" opacity=".25"/>
-<line x1="12" y1="50" x2="88" y2="50" stroke="url(#gold)" stroke-width="1" opacity=".25"/>
-<circle cx="50" cy="10" r="4.4" fill="url(#gold)"/><circle cx="50" cy="90" r="4.4" fill="url(#gold)"/>
-<circle cx="10" cy="50" r="4.4" fill="url(#silver)"/><circle cx="90" cy="50" r="4.4" fill="url(#gold)"/>
-<text x="50" y="63" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="40" font-weight="700"><tspan fill="url(#silver)">T</tspan><tspan fill="url(#gold)">P</tspan></text>
-<circle cx="50" cy="50" r="9" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
-</svg><div class="wordmark"><span class="t">TP</span> <span class="n">Nexus</span></div></div>
-  <div class="ftag">Chuyển đổi số &amp; Marketing tự động</div>
-  <div class="fc">☎ Hotline: <b>0825.726.439</b><br>Zalo OA / YouTube / FB: <b>Thật Phạm Automation</b></div>
+  <div class="fx fx-grid"></div><div class="fx fx-glow"></div><div class="fx-scan"></div><span class="dot" style="left:11%;top:32%"></span><span class="dot" style="left:82%;top:24%;animation-delay:2.4s"></span><span class="dot" style="left:63%;top:64%;animation-delay:4s"></span><span class="dot" style="left:28%;top:72%;animation-delay:1.2s"></span>
+  <div class="foot-in">
+    <div class="brand brand-foot">
+  <img class="blogo" src="logo.png" alt="TP Nexus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+  <div class="bfall" style="display:none"><div class="wordmark"><span class="t">TP</span> <span class="n">Nexus</span></div><div class="tagline">Hội tụ • Tinh gọn • Bứt phá</div></div>
 </div>
-<div class="gen">Số liệu cập nhật: 01:02 28/06/2026</div>
+    <div class="ftag">Chuyển đổi số &amp; Marketing tự động</div>
+    <div class="fc">☎ Hotline: <b>0825.726.439</b><br>Zalo OA / YouTube / FB: <b>Thật Phạm Automation</b></div>
+  </div>
+</div>
+<div class="gen">Số liệu cập nhật: 01:33 28/06/2026</div>
 </div>
 <div class="fab">
   <button class="btn gold" onclick="var u=location.href.split('?')[0];location.href=u+'?t='+(new Date().getTime());">🔄 Cập nhật dữ liệu</button>
