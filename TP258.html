@@ -5,32 +5,39 @@
 *{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',Roboto,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
 .wrap{max-width:880px;margin:0 auto;padding:22px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:16px;box-shadow:0 2px 8px rgba(17,21,28,.05)}
-.hero{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border:none;position:relative;overflow:hidden;padding:26px}
+.hero{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border:none;position:relative;overflow:hidden;padding:18px 22px}
 .hero-in{position:relative;z-index:2}
+.hero-row{display:flex;align-items:center;gap:20px}
+.hero-logo{flex:none}
+.hero-info{flex:1;min-width:0}
 /* tech effects */
 .fx{position:absolute;inset:0;pointer-events:none;z-index:0}
-.fx-grid{background-image:linear-gradient(rgba(201,161,74,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(201,161,74,.045) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(135% 115% at 50% 0,#000,transparent 80%);mask-image:radial-gradient(135% 115% at 50% 0,#000,transparent 80%);animation:gridpan 30s linear infinite}
-@keyframes gridpan{to{background-position:0 34px}}
-.fx-glow{background:radial-gradient(60% 60% at 78% -8%,rgba(201,161,74,.11),transparent 72%);animation:glowpulse 11s ease-in-out infinite}
-@keyframes glowpulse{0%,100%{opacity:.5}50%{opacity:.85}}
-.fx-scan{position:absolute;left:0;right:0;height:1px;top:0;z-index:1;background:linear-gradient(90deg,transparent,rgba(243,215,127,.22),transparent);animation:scan 16s linear infinite;pointer-events:none}
-@keyframes scan{0%{top:-2%;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:102%;opacity:0}}
-.dot{position:absolute;width:2.5px;height:2.5px;border-radius:50%;background:rgba(243,215,127,.5);z-index:1;box-shadow:0 0 5px rgba(243,215,127,.4);animation:drift 13s ease-in-out infinite;pointer-events:none}
-@keyframes drift{0%,100%{transform:translateY(0);opacity:.15}50%{transform:translateY(-8px);opacity:.65}}
+.fx-grid{background-image:linear-gradient(rgba(201,161,74,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,161,74,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(140% 120% at 50% 0,#000,transparent 82%);mask-image:radial-gradient(140% 120% at 50% 0,#000,transparent 82%);animation:gridpan 26s linear infinite}
+@keyframes gridpan{to{background-position:0 32px}}
+.fx-aurora{background:conic-gradient(from 0deg at 82% 8%,transparent 0deg,rgba(201,161,74,.12) 40deg,transparent 110deg,rgba(150,190,255,.06) 200deg,transparent 300deg);mix-blend-mode:screen;animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fx-glow{background:radial-gradient(55% 70% at 80% -10%,rgba(201,161,74,.13),transparent 72%);animation:glowpulse 10s ease-in-out infinite}
+@keyframes glowpulse{0%,100%{opacity:.5}50%{opacity:.9}}
+.fx-sheen{position:absolute;top:0;bottom:0;width:55%;left:-60%;z-index:1;background:linear-gradient(100deg,transparent,rgba(255,236,180,.08),transparent);animation:sheen 8s ease-in-out infinite;pointer-events:none}
+@keyframes sheen{0%{left:-60%}55%,100%{left:140%}}
+.dot{position:absolute;border-radius:50%;background:rgba(243,215,127,.55);z-index:1;box-shadow:0 0 6px rgba(243,215,127,.5);animation:drift 12s ease-in-out infinite;pointer-events:none}
+@keyframes drift{0%,100%{transform:translateY(0);opacity:.15}50%{transform:translateY(-9px);opacity:.7}}
 /* logo */
-.brand{margin-bottom:6px}
-.brand-hero{text-align:center;border-bottom:1px solid rgba(201,161,74,.22);padding-bottom:16px;margin-bottom:16px}
-.brand-hero .blogo{max-width:300px;width:72%;height:auto;filter:drop-shadow(0 6px 22px rgba(201,161,74,.22))}
-.brand-foot .blogo{max-width:170px;width:60%;height:auto}
+.brand{margin:0}
+.brand-hero{text-align:center}
+.brand-hero .blogo{width:122px;max-width:122px;height:auto;filter:drop-shadow(0 4px 16px rgba(201,161,74,.25))}
+.brand-hero .bfall .wordmark{font-size:17px}
+.brand-foot .blogo{max-width:160px;width:56%;height:auto}
 .brand-foot{margin-bottom:6px}
 .wordmark{font-size:22px;font-weight:800;letter-spacing:.5px;line-height:1}
 .wordmark .t{background:linear-gradient(135deg,#aab0b8,#f2f5f8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .wordmark .n{background:linear-gradient(135deg,#caa14a,#f3d77f);-webkit-background-clip:text;background-clip:text;color:transparent}
 .tagline{font-size:10.5px;letter-spacing:2px;color:#caa14a;text-transform:uppercase;margin-top:4px}
-.hero-doc{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px}
-.hero h1{margin:0 0 4px;font-size:24px;letter-spacing:.3px}
-.hero .sub{opacity:.7;font-size:13px}
-.badge-period{display:inline-block;margin-top:12px;margin-right:8px;background:rgba(201,161,74,.16);border:1px solid rgba(201,161,74,.4);color:#f3d77f;padding:5px 13px;border-radius:999px;font-size:12.5px}
+.hero-doc{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:3px}
+.hero h1{margin:0 0 3px;font-size:21px;letter-spacing:.3px}
+.hero .sub{opacity:.65;font-size:12.5px}
+.badge-period{display:inline-block;margin-top:9px;margin-right:7px;background:rgba(201,161,74,.16);border:1px solid rgba(201,161,74,.4);color:#f3d77f;padding:4px 11px;border-radius:999px;font-size:12px}
+@media(max-width:560px){.hero-row{flex-direction:column;text-align:center;gap:12px}.brand-hero .blogo{width:130px;max-width:130px}}
 h2{font-size:15px;margin:0 0 14px;color:var(--dark2);display:flex;align-items:center;gap:8px}
 .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .stat{background:var(--bg);border-radius:12px;padding:14px;text-align:center;border:1px solid var(--line)}
@@ -68,21 +75,23 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted
 .btn{background:var(--dark2);color:#fff;border:none;padding:12px 16px;border-radius:999px;font-size:13.5px;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.25);white-space:nowrap}
 .btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1205;font-weight:700}
 @media(max-width:680px){.stat-grid{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}.kpi-row{grid-template-columns:96px 1fr 100px}.hero h1{font-size:21px}}
-@media (prefers-reduced-motion:reduce){.fx-grid,.fx-glow,.fx-scan,.dot{animation:none}}
-@media print{body{background:#fff}.fab{display:none}.card{box-shadow:none;break-inside:avoid}.wrap{max-width:100%}.fx,.fx-scan,.dot{display:none!important}}
+@media (prefers-reduced-motion:reduce){.fx-grid,.fx-glow,.fx-aurora,.fx-sheen,.dot{animation:none}}
+@media print{body{background:#fff}.fab{display:none}.card{box-shadow:none;break-inside:avoid}.wrap{max-width:100%}.fx,.fx-sheen,.dot{display:none!important}}
 </style></head><body><div class="wrap">
 
 <div class="card hero">
-  <div class="fx fx-grid"></div><div class="fx fx-glow"></div><div class="fx-scan"></div><span class="dot" style="left:11%;top:32%"></span><span class="dot" style="left:82%;top:24%;animation-delay:2.4s"></span><span class="dot" style="left:63%;top:64%;animation-delay:4s"></span><span class="dot" style="left:28%;top:72%;animation-delay:1.2s"></span>
-  <div class="hero-in">
-    <div class="brand brand-hero">
+  <div class="fx fx-grid"></div><div class="fx fx-aurora"></div><div class="fx fx-glow"></div><div class="fx-sheen"></div><span class="dot" style="left:10%;top:34%;width:3px;height:3px;animation-delay:0s"></span><span class="dot" style="left:84%;top:26%;width:2px;height:2px;animation-delay:2.4s"></span><span class="dot" style="left:64%;top:66%;width:2.5px;height:2.5px;animation-delay:4s"></span><span class="dot" style="left:27%;top:74%;width:2px;height:2px;animation-delay:1.2s"></span><span class="dot" style="left:47%;top:20%;width:1.6px;height:1.6px;animation-delay:3s"></span><span class="dot" style="left:92%;top:58%;width:2.2px;height:2.2px;animation-delay:5.5s"></span><span class="dot" style="left:18%;top:54%;width:1.6px;height:1.6px;animation-delay:1.8s"></span><span class="dot" style="left:73%;top:42%;width:1.4px;height:1.4px;animation-delay:3.6s"></span>
+  <div class="hero-in hero-row">
+    <div class="hero-logo"><div class="brand brand-hero">
   <img class="blogo" src="logo.png" alt="TP Nexus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
   <div class="bfall" style="display:none"><div class="wordmark"><span class="t">TP</span> <span class="n">Nexus</span></div><div class="tagline">Hội tụ • Tinh gọn • Bứt phá</div></div>
-</div>
-    <div class="hero-doc">Báo cáo dịch vụ truyền thông</div>
-    <h1>Cơ Khí Đình Giang</h1>
-    <div class="sub">TP258 | Cơ Khí Đình Giang</div>
-    <div><span class="badge-period">📅 Kỳ: Tháng 6/2026</span><span class="badge-period">🎯 Tiến độ chỉ tiêu: 20%</span><span class="badge-period">🔄 Cập nhật: 01:33 28/06/2026</span></div>
+</div></div>
+    <div class="hero-info">
+      <div class="hero-doc">Báo cáo dịch vụ truyền thông</div>
+      <h1>Cơ Khí Đình Giang</h1>
+      <div class="sub">TP258 | Cơ Khí Đình Giang</div>
+      <div><span class="badge-period">📅 Kỳ: Tháng 6/2026</span><span class="badge-period">🎯 Tiến độ chỉ tiêu: 20%</span><span class="badge-period">🔄 Cập nhật: 01:42 28/06/2026</span></div>
+    </div>
   </div>
 </div>
 
@@ -199,7 +208,7 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted
 </div>
 
 <div class="foot">
-  <div class="fx fx-grid"></div><div class="fx fx-glow"></div><div class="fx-scan"></div><span class="dot" style="left:11%;top:32%"></span><span class="dot" style="left:82%;top:24%;animation-delay:2.4s"></span><span class="dot" style="left:63%;top:64%;animation-delay:4s"></span><span class="dot" style="left:28%;top:72%;animation-delay:1.2s"></span>
+  <div class="fx fx-grid"></div><div class="fx fx-aurora"></div><div class="fx fx-glow"></div><div class="fx-sheen"></div><span class="dot" style="left:10%;top:34%;width:3px;height:3px;animation-delay:0s"></span><span class="dot" style="left:84%;top:26%;width:2px;height:2px;animation-delay:2.4s"></span><span class="dot" style="left:64%;top:66%;width:2.5px;height:2.5px;animation-delay:4s"></span><span class="dot" style="left:27%;top:74%;width:2px;height:2px;animation-delay:1.2s"></span><span class="dot" style="left:47%;top:20%;width:1.6px;height:1.6px;animation-delay:3s"></span><span class="dot" style="left:92%;top:58%;width:2.2px;height:2.2px;animation-delay:5.5s"></span><span class="dot" style="left:18%;top:54%;width:1.6px;height:1.6px;animation-delay:1.8s"></span><span class="dot" style="left:73%;top:42%;width:1.4px;height:1.4px;animation-delay:3.6s"></span>
   <div class="foot-in">
     <div class="brand brand-foot">
   <img class="blogo" src="logo.png" alt="TP Nexus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
@@ -209,7 +218,7 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted
     <div class="fc">☎ Hotline: <b>0825.726.439</b><br>Zalo OA / YouTube / FB: <b>Thật Phạm Automation</b></div>
   </div>
 </div>
-<div class="gen">Số liệu cập nhật: 01:33 28/06/2026</div>
+<div class="gen">Số liệu cập nhật: 01:42 28/06/2026</div>
 </div>
 <div class="fab">
   <button class="btn gold" onclick="var u=location.href.split('?')[0];location.href=u+'?t='+(new Date().getTime());">🔄 Cập nhật dữ liệu</button>

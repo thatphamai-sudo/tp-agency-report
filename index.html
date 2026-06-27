@@ -5,16 +5,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f3f4f7;margin:0;col
 .hd{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:16px;padding:24px;margin-bottom:18px;position:relative;overflow:hidden}
 .hd-in{position:relative;z-index:2}
 .fx{position:absolute;inset:0;pointer-events:none;z-index:0}
-.fx-grid{background-image:linear-gradient(rgba(201,161,74,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(201,161,74,.045) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(135% 115% at 50% 0,#000,transparent 80%);mask-image:radial-gradient(135% 115% at 50% 0,#000,transparent 80%);animation:gridpan 30s linear infinite}
-@keyframes gridpan{to{background-position:0 34px}}
-.fx-glow{background:radial-gradient(60% 60% at 80% -10%,rgba(201,161,74,.11),transparent 72%);animation:glowpulse 11s ease-in-out infinite}
-@keyframes glowpulse{0%,100%{opacity:.5}50%{opacity:.85}}
-.fx-scan{position:absolute;left:0;right:0;height:1px;top:0;z-index:1;background:linear-gradient(90deg,transparent,rgba(243,215,127,.22),transparent);animation:scan 16s linear infinite}
-@keyframes scan{0%{top:-2%;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:102%;opacity:0}}
-.dot{position:absolute;width:2.5px;height:2.5px;border-radius:50%;background:rgba(243,215,127,.5);z-index:1;box-shadow:0 0 5px rgba(243,215,127,.4);animation:drift 13s ease-in-out infinite}
-@keyframes drift{0%,100%{transform:translateY(0);opacity:.15}50%{transform:translateY(-8px);opacity:.65}}
+.fx-grid{background-image:linear-gradient(rgba(201,161,74,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,161,74,.05) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(140% 120% at 50% 0,#000,transparent 82%);mask-image:radial-gradient(140% 120% at 50% 0,#000,transparent 82%);animation:gridpan 26s linear infinite}
+@keyframes gridpan{to{background-position:0 32px}}
+.fx-aurora{background:conic-gradient(from 0deg at 82% 8%,transparent 0deg,rgba(201,161,74,.12) 40deg,transparent 110deg,rgba(150,190,255,.06) 200deg,transparent 300deg);mix-blend-mode:screen;animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fx-glow{background:radial-gradient(55% 70% at 80% -10%,rgba(201,161,74,.13),transparent 72%);animation:glowpulse 10s ease-in-out infinite}
+@keyframes glowpulse{0%,100%{opacity:.5}50%{opacity:.9}}
+.fx-sheen{position:absolute;top:0;bottom:0;width:55%;left:-60%;z-index:1;background:linear-gradient(100deg,transparent,rgba(255,236,180,.08),transparent);animation:sheen 8s ease-in-out infinite}
+@keyframes sheen{0%{left:-60%}55%,100%{left:140%}}
+.dot{position:absolute;border-radius:50%;background:rgba(243,215,127,.55);z-index:1;box-shadow:0 0 6px rgba(243,215,127,.5);animation:drift 12s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translateY(0);opacity:.15}50%{transform:translateY(-9px);opacity:.7}}
 .brand-hero{text-align:center}
-.brand-hero .blogo{max-width:280px;width:70%;height:auto;filter:drop-shadow(0 6px 22px rgba(201,161,74,.22))}
+.brand-hero .blogo{max-width:200px;width:64%;height:auto;filter:drop-shadow(0 6px 22px rgba(201,161,74,.22))}
 .wordmark{font-size:22px;font-weight:800;letter-spacing:.5px}
 .wordmark .t{background:linear-gradient(135deg,#aab0b8,#f2f5f8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .wordmark .n{background:linear-gradient(135deg,#caa14a,#f3d77f);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -24,7 +26,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f3f4f7;margin:0;col
 a.row{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid #e8eaee;border-radius:12px;padding:15px 18px;margin-bottom:10px;text-decoration:none;color:#1f2937;box-shadow:0 2px 8px rgba(17,21,28,.04)}
 a.row:hover{border-color:var(--gold)}.c{color:#6b7280;font-size:13px}.arr{color:var(--gold);font-weight:600}
 </style></head><body><div class="wrap">
-<div class="hd"><div class="fx fx-grid"></div><div class="fx fx-glow"></div><div class="fx-scan"></div><span class="dot" style="left:11%;top:32%"></span><span class="dot" style="left:82%;top:24%;animation-delay:2.4s"></span><span class="dot" style="left:63%;top:64%;animation-delay:4s"></span><span class="dot" style="left:28%;top:72%;animation-delay:1.2s"></span><div class="hd-in"><div class="brand brand-hero">
+<div class="hd"><div class="fx fx-grid"></div><div class="fx fx-aurora"></div><div class="fx fx-glow"></div><div class="fx-sheen"></div><span class="dot" style="left:10%;top:34%;width:3px;height:3px;animation-delay:0s"></span><span class="dot" style="left:84%;top:26%;width:2px;height:2px;animation-delay:2.4s"></span><span class="dot" style="left:64%;top:66%;width:2.5px;height:2.5px;animation-delay:4s"></span><span class="dot" style="left:27%;top:74%;width:2px;height:2px;animation-delay:1.2s"></span><span class="dot" style="left:47%;top:20%;width:1.6px;height:1.6px;animation-delay:3s"></span><span class="dot" style="left:92%;top:58%;width:2.2px;height:2.2px;animation-delay:5.5s"></span><span class="dot" style="left:18%;top:54%;width:1.6px;height:1.6px;animation-delay:1.8s"></span><span class="dot" style="left:73%;top:42%;width:1.4px;height:1.4px;animation-delay:3.6s"></span><div class="hd-in"><div class="brand brand-hero">
   <img class="blogo" src="logo.png" alt="TP Nexus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
   <div class="bfall" style="display:none"><div class="wordmark"><span class="t">TP</span> <span class="n">Nexus</span></div><div class="tagline">Hội tụ • Tinh gọn • Bứt phá</div></div>
 </div>
