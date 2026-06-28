@@ -13,8 +13,10 @@
 @keyframes spin{to{transform:rotate(360deg)}}
 .fx-glow{background:radial-gradient(55% 70% at 80% -10%,rgba(201,161,74,.13),transparent 72%);animation:glowpulse 10s ease-in-out infinite}
 @keyframes glowpulse{0%,100%{opacity:.5}50%{opacity:.9}}
-.fx-sheen{position:absolute;top:0;bottom:0;width:55%;left:-60%;z-index:1;background:linear-gradient(100deg,transparent,rgba(255,236,180,.08),transparent);animation:sheen 8s ease-in-out infinite;pointer-events:none}
+.fx-sheen{position:absolute;top:0;bottom:0;width:55%;left:-60%;z-index:1;background:linear-gradient(100deg,transparent,rgba(255,236,180,.1),transparent);animation:sheen 7s ease-in-out infinite;pointer-events:none}
 @keyframes sheen{0%{left:-60%}55%,100%{left:140%}}
+.dot{position:absolute;border-radius:50%;background:rgba(243,215,127,.75);z-index:1;box-shadow:0 0 7px rgba(243,215,127,.7);animation:drift 7s ease-in-out infinite;pointer-events:none}
+@keyframes drift{0%,100%{transform:translateY(0);opacity:.2}50%{transform:translateY(-9px);opacity:.95}}
 .hero-doc{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:3px}
 .hero h1{margin:0 0 3px;font-size:21px;letter-spacing:.3px}
 .hero .sub{opacity:.65;font-size:12.5px}
@@ -59,5 +61,5 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted
 .btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1205;font-weight:700}
 @media(max-width:680px){.stat-grid{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}.kpi-row{grid-template-columns:96px 1fr 100px}}
 @media(max-width:560px){.hero-row{flex-direction:column;text-align:center;gap:12px}}
-@media (prefers-reduced-motion:reduce){.fx-grid,.fx-aurora,.fx-glow,.fx-sheen{animation:none}}
-@media print{body{background:#fff}.fab{display:none}.card{box-shadow:none;break-inside:avoid}.wrap{max-width:100%}.fx,.fx-sheen{display:none!important}}
+@media (prefers-reduced-motion:reduce){.fx-grid,.fx-aurora,.fx-glow,.fx-sheen,.dot{animation:none}}
+@media print{body{background:#fff}.fab{display:none}.card{box-shadow:none;break-inside:avoid}.wrap{max-width:100%}.fx,.fx-sheen,.dot{display:none!important}}
