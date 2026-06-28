@@ -29,6 +29,14 @@ h2{font-size:15px;margin:0 0 14px;color:var(--dark2)}
 .kpi-track{height:10px;background:#eef0f4;border-radius:999px;overflow:hidden}
 .kpi-fill{height:100%;border-radius:999px}
 .kpi-val{font-size:13px;text-align:right}
+.pp{display:inline-block;min-width:42px;text-align:center;color:#fff;font-weight:800;font-size:13px;padding:3px 9px;border-radius:8px;margin-left:4px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.pp0{background:#cbd0d8;color:#fff}
+.note-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.note{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.note .nk{font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:4px}
+.note .nv{font-size:18px;font-weight:800;color:var(--dark2)}
+.note .nv small{font-size:12px;font-weight:500;color:var(--muted)}
+@media(max-width:560px){.note-grid{grid-template-columns:1fr}}
 .muted{color:var(--muted);font-weight:400}
 .donut{width:150px;height:150px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center}
 .donut-hole{width:96px;height:96px;background:#fff;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
