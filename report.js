@@ -11,7 +11,8 @@
     var t=(parts[0]||'').trim()||'Khác';
     var c=(parts[1]||'').trim();
     topics[t]=(topics[t]||0)+1; total++;
-    if(c){chans[c]=(chans[c]||0)+1;}
+    // CHỌN KÊNH ĐĂNG là multi-select → nhiều kênh/bài, phân tách bằng '¦'
+    if(c){c.split('¦').forEach(function(one){one=one.trim();if(one){chans[one]=(chans[one]||0)+1;}});}
   });
   function sortE(o){return Object.keys(o).map(function(k){return [k,o[k]];}).sort(function(a,b){return b[1]-a[1];});}
   // ---- Chủ đề ----
@@ -37,7 +38,7 @@
       var totC=ce.reduce(function(s,e){return s+e[1];},0);
       ck.innerHTML='<table><thead><tr><th>Kênh đăng</th><th style="text-align:right">Số bài</th></tr></thead><tbody>'
         +ce.map(function(e){return '<tr><td>'+esc(e[0])+'</td><td style="text-align:right"><b style="color:#0f2c54">'+e[1]+'</b></td></tr>';}).join('')
-        +'<tr><td style="font-weight:700">Tổng đã đăng</td><td style="text-align:right;font-weight:700">'+totC+'</td></tr></tbody></table>';
+        +'<tr><td style="font-weight:700">Tổng lượt đăng (theo kênh)</td><td style="text-align:right;font-weight:700">'+totC+'</td></tr></tbody></table>';
     }
   }
 })();
