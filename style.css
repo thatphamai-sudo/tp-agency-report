@@ -18,6 +18,7 @@
 .dot{position:absolute;border-radius:50%;background:rgba(243,215,127,.75);z-index:1;box-shadow:0 0 7px rgba(243,215,127,.7);animation:drift 7s ease-in-out infinite;pointer-events:none}
 @keyframes drift{0%,100%{transform:translateY(0);opacity:.2}50%{transform:translateY(-9px);opacity:.95}}
 .hero-doc{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:3px}
+.month-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1205;font-weight:800;font-size:13.5px;letter-spacing:1.2px;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:10px;box-shadow:0 5px 16px rgba(201,161,74,.4)}
 .hero h1{margin:0 0 3px;font-size:21px;letter-spacing:.3px}
 .hero .sub{opacity:.65;font-size:12.5px}
 .badge-period{display:inline-block;margin-top:9px;margin-right:7px;background:rgba(201,161,74,.16);border:1px solid rgba(201,161,74,.4);color:#f3d77f;padding:4px 11px;border-radius:999px;font-size:12px}
